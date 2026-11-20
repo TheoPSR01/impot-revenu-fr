@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "impot-revenu-fr"
+version = "0.1.0"
+description = "Calcul de l'impôt sur le revenu français : barème, quotient familial et plafonnement, décote"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Théo Pasquier" }]
+keywords = ["impôt sur le revenu", "barème", "quotient familial", "décote", "tranche marginale", "France"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+impot-revenu-fr = "impot_revenu.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/TheoPSR01/impot-revenu-fr"
+Issues = "https://github.com/TheoPSR01/impot-revenu-fr/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/impot_revenu"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
